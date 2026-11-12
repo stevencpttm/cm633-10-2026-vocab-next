@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,32 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <div className="p-4 text-center min-h-screen bg-slate-200">
+          <h1 className="text-center text-4xl font-bold my-8">Vocab App</h1>
+
+          <ul className="flex justify-around bg-slate-100 rounded-lg p-1 gap-1">
+            <li className="flex-1">
+              <Link
+                href="/"
+                className="py-2 block hover:bg-slate-700 hover:text-white rounded"
+              >
+                Look Up (Client)
+              </Link>
+            </li>
+            <li className="flex-1">
+              <Link
+                href="/word"
+                className="py-2 block hover:bg-slate-700 hover:text-white rounded"
+              >
+                Look Up (Server)
+              </Link>
+            </li>
+          </ul>
+
+          <div className="my-8 mx-4">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
