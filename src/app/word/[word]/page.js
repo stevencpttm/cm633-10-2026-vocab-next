@@ -17,7 +17,6 @@ async function LookUp({ params }) {
         <input
           type="text"
           className="bg-white w-full rounded-lg p-4 text-2xl disabled:bg-gray-100"
-          value={word}
         />
       </div>
 
